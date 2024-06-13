@@ -35,12 +35,12 @@ if ($resultado != false) {
         <tbody>
             <?php
             foreach ($arquivos as $arquivo) {
-                $arq = $arquivo['nome_arquivo'];
+                $arq = $arquivo['Nome_arquivo'];
                 echo "<tr>"; // iniciar a linha
                 echo "<td>$arq</td>"; // 1ª coluna com o nome do arquivo
                 echo "<td>"; // iniciar a 2ª coluna
                 echo "<a "; // abriu o link (abriu a tag a)
-                echo "href='alterar.php?nome_arquivo=$arq'>"; // inseriu o link
+                echo "href='alterar.php?Nome_arquivo=$arq'>"; // inseriu o link
                 echo "Alterar"; // imprimiu o texto da tag a
                 echo "</a>"; // fechei a tag a (fechei o link)
                 echo "</td>"; // fechei a 2ª coluna
@@ -58,8 +58,11 @@ if ($resultado != false) {
     </table>
 
     <script>
-        function excluir(nome_arquivo) {
-            confirm("Você tem certeza que deseja excluir o arquivo " + nome_arquivo + "?");
+        function excluir(Nome_arquivo) {
+            let deletar = confirm("Você tem certeza que deseja excluir o arquivo " + Nome_arquivo + "?");
+            if (deletar == true) {
+                window.location.href = "deletar.php?Nome_arquivo=" + Nome_arquivo;
+            }
         }
     </script>
 </body>
